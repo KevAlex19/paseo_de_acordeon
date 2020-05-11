@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "962632089268",
+    "firebase_url": "https://paseoacordeondb.firebaseio.com",
+    "project_id": "paseoacordeondb",
+    "storage_bucket": "paseoacordeondb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962632089268:android:e63c30f4bc88640ec2a1e1",
+        "android_client_info": {
+          "package_name": "com.example.paseo_de_acordeon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "962632089268-hdqh6luin38kdf7eo45buo5cp236kk4l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.paseo_de_acordeon",
+            "certificate_hash": "e716a331c54f062b9cd5597da9c380c8a7255316"
+          }
+        },
+        {
+          "client_id": "962632089268-4pfum6a01r78gtjbda8d78pflscas8dt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2xUUJddD-tHaYuW__qggsyJVHg9pb0LY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "962632089268-4pfum6a01r78gtjbda8d78pflscas8dt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
