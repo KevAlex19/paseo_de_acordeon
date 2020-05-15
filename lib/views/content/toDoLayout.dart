@@ -2,6 +2,7 @@ import 'package:paseo_de_acordeon/components/constans.dart';
 import 'package:paseo_de_acordeon/controllers/LoginController.dart';
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
+import 'package:paseo_de_acordeon/models/toDo.dart';
 
 import 'package:paseo_de_acordeon/views/content/detail.dart';
 
@@ -22,78 +23,76 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class MySuperHero {
-  final String img;
-  final String title;
-  final String body;
-
-  MySuperHero(this.img, this.title, this.body);
-}
-
 class _MyHomePageState extends StateMVC<MyHomePage> {
   MainController _con;
-  List<MySuperHero> items = new List<MySuperHero>();
+  List<TasktoDo> items = new List<TasktoDo>();
 
   _MyHomePageState() : super(MainController()) {
     _con = controller;
-    items.add(new MySuperHero("assets/aves.jpg", "  Avistamiento de aves",
-        "Genius. Billionaire. Playboy. Philanthropist. Tony Stark's confidence is only matched by his high-flying abilities as the hero called Iron Man."));
-    items.add(new MySuperHero("assets/rio.jpg", "  Bañarse en el río",
-        "Recipient of the Super-Soldier serum, World War II hero Steve Rogers fights for American ideals as one of the world’s mightiest heroes and the leader of the Avengers."));
-    items.add(new MySuperHero("assets/aves.jpg", "  Caminatas",
-        "The son of Odin uses his mighty abilities as the God of Thunder to protect his home Asgard and planet Earth alike."));
-    items.add(new MySuperHero("assets/aves.jpg", "  Parapente",
-        "Dr. Bruce Banner lives a life caught between the soft-spoken scientist he’s always been and the uncontrollable green monster powered by his rage."));
-    items.add(new MySuperHero("assets/aves.jpg", "  Ciclco montañismo",
-        "Despite super spy Natasha Romanoff’s checkered past, she’s become one of S.H.I.E.L.D.’s most deadly assassins and a frequent member of the Avengers."));
+    items.add(new TasktoDo("assets/festival.jpg", "  Festival Vallenato",
+        "Es el evento mas importante del Vallenato."));
+    items.add(new TasktoDo("assets/aves.jpg", "  Avistamiento de aves",
+        "La capital del Cesar se suma al Global Big Day."));
+    items.add(new TasktoDo("assets/quinta.jpg", "  Festival de la 5ta",
+        " En el centro histórico de Valledupar."));
+    items.add(new TasktoDo("assets/parapente.jpg", "  Parapente Manaure, Cesar",
+        "¡Olvídate de tus miedos volando en Parapente!."));
   }
 
-  Widget SuperHeroCell(BuildContext ctx, int index) {
-    MySuperHero superHero = items[index];
+  Widget TaskCell(BuildContext ctx, int index) {
+    TasktoDo tasktoDo = items[index];
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            ctx, MaterialPageRoute(builder: (ctx) => MyDetailPage(superHero)));
+            ctx, MaterialPageRoute(builder: (ctx) => MyDetailPage(tasktoDo)));
       },
       child: Card(
-        color: Colors.black.withAlpha(10),
+        color: Colors.black.withAlpha(1),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
         margin: EdgeInsets.all(18),
         child: Container(
           padding: EdgeInsets.all(18),
-          child: Row(
+          child: Column(
             children: <Widget>[
-              Hero(
-                tag: superHero,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    superHero.img,
-                    height: 70,
-                    width: 70,
-                  ),
-                ),
-              ),
-              Text(
-                superHero.title,
-                style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'OpenSans'),
-              ),
-              Expanded(child: SizedBox()),
-              Column(
+              Row(
                 children: <Widget>[
-                  SizedBox(
-                    height: 50,
+                  Hero(
+                    tag: tasktoDo,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        tasktoDo.img,
+                        height: 70,
+                        width: 70,
+                      ),
+                    ),
+                  ),
+
+                  Text(
+                    tasktoDo.title,
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'OpenSans'),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+              Text(tasktoDo.body.substring(0,26)+"..."),
+                  Expanded(
+                    child:SizedBox() 
                   ),
                   Icon(
-                    Icons.thumb_up,
-                    color: Colors.blueAccent,
-                  ),
-                  Text('20',style: kLabelStyle,)
+                      Icons.thumb_up,
+                      color: Colors.blueAccent,
+                    ),
+                  Text(
+                    '20',
+                    style: kLabelStyle,
+                  )
                 ],
               )
             ],
@@ -105,28 +104,41 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> tasks =
+        List.generate(items.length, (index) => TaskCell(context, index));
+
     return Scaffold(
-      backgroundColor: Colors.blue.withAlpha(100),
-      appBar: AppBar(
-        backgroundColor: Colors.blue.withAlpha(100),
-        title: Text(
-          'What to do?',
-          style: TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'OpenSans'),
-        ),
-      ),
-      body: Center(
-        child: Stack(
-          children: <Widget>[
-            ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) => SuperHeroCell(context, index),
+      backgroundColor: Colors.white,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            floating: true,
+            expandedHeight: 80,
+            backgroundColor: Colors.blue.withAlpha(200),
+            flexibleSpace: Center(
+              child: Text(
+                '¿Qué hacer?',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'OpenSans'),
+              ),
             ),
-          ],
-        ),
+          ),
+          SliverList(delegate: SliverChildListDelegate(tasks))
+        ],
+        /* child: Center(
+          child: Stack(
+            children: <Widget>[
+              ListView.builder(
+                itemCount: items.length,
+                itemBuilder: (context, index) => TaskCell(context, index),
+              ),
+            ],
+
+          ),
+        ),*/
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
