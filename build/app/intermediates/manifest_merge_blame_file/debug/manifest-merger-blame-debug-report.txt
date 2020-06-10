@@ -1,0 +1,359 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.paseo_de_acordeon"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="28" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:9:5-66
+14-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:9:22-64
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:10:5-78
+15-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:10:22-76
+16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+16-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:11:5-80
+16-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:11:22-78
+17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+17-->[:image_picker] C:\src\proyectos\paseo_de_acordeon\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-80
+17-->[:image_picker] C:\src\proyectos\paseo_de_acordeon\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-77
+18    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Include required permissions for Google Maps API to run. -->
+18-->[:image_picker] C:\src\proyectos\paseo_de_acordeon\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-81
+18-->[:image_picker] C:\src\proyectos\paseo_de_acordeon\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-78
+19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+19-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\6f4e6eb26f6c204062e462fe30c558b2\play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
+19-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\6f4e6eb26f6c204062e462fe30c558b2\play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
+20
+21    <uses-feature
+21-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\6f4e6eb26f6c204062e462fe30c558b2\play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+22        android:glEsVersion="0x00020000"
+22-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\6f4e6eb26f6c204062e462fe30c558b2\play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+23        android:required="true" />
+23-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\6f4e6eb26f6c204062e462fe30c558b2\play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+24
+25    <uses-permission android:name="android.permission.WAKE_LOCK" />
+25-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:25:5-68
+25-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:25:22-65
+26    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+26-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:26:5-110
+26-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:26:22-107
+27    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+27-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\f26cdfb5f8d69cbc9663543f3ec1de65\firebase-iid-20.0.2\AndroidManifest.xml:26:5-82
+27-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\f26cdfb5f8d69cbc9663543f3ec1de65\firebase-iid-20.0.2\AndroidManifest.xml:26:22-79
+28
+29    <application
+29-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:13:5-53:19
+30        android:name="io.flutter.app.FlutterApplication"
+30-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:14:9-57
+31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+31-->[androidx.core:core:1.1.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\3aaf6e5219b7f981ec263df919098c6f\core-1.1.0\AndroidManifest.xml:24:18-86
+32        android:debuggable="true"
+33        android:icon="@mipmap/ic_launcher"
+33-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:16:9-43
+34        android:label="paseo_de_acordeon" >
+34-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:15:9-42
+35        <meta-data
+35-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:17:9-18:73
+36            android:name="com.google.android.geo.API_KEY"
+36-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:17:20-65
+37            android:value="AIzaSyB2xUUJddD-tHaYuW__qggsyJVHg9pb0LY" />
+37-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:18:16-71
+38
+39        <activity
+39-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:19:9-47:20
+40            android:name="com.example.paseo_de_acordeon.MainActivity"
+40-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:20:13-41
+41            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+41-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:23:13-163
+42            android:hardwareAccelerated="true"
+42-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:24:13-47
+43            android:launchMode="singleTop"
+43-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:21:13-43
+44            android:theme="@style/LaunchTheme"
+44-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:22:13-47
+45            android:windowSoftInputMode="adjustResize" >
+45-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:25:13-55
+46
+47            <!--
+48                 Specifies an Android theme to apply to this Activity as soon as
+49                 the Android process has started. This theme is visible to the user
+50                 while the Flutter UI initializes. After that, this theme continues
+51                 to determine the Window background behind the Flutter UI.
+52            -->
+53            <meta-data
+53-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:30:13-33:17
+54                android:name="io.flutter.embedding.android.NormalTheme"
+54-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:31:15-70
+55                android:resource="@style/NormalTheme" />
+55-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:32:15-52
+56            <!--
+57                 Displays an Android View that continues showing the launch screen
+58                 Drawable until Flutter paints its first frame, then this splash
+59                 screen fades out. A splash screen is useful to avoid any visual
+60                 gap between the end of Android's launch screen and the painting of
+61                 Flutter's first frame.
+62            -->
+63            <meta-data
+63-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:39:13-42:17
+64                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+64-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:40:15-79
+65                android:resource="@drawable/launch_background" />
+65-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:41:15-61
+66
+67            <intent-filter>
+67-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:43:13-46:29
+68                <action android:name="android.intent.action.MAIN" />
+68-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:44:17-68
+68-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:44:25-66
+69
+70                <category android:name="android.intent.category.LAUNCHER" />
+70-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:45:17-76
+70-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:45:27-74
+71            </intent-filter>
+72        </activity>
+73        <!--
+74             Don't delete the meta-data below.
+75             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+76        -->
+77        <meta-data
+77-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:50:9-52:33
+78            android:name="flutterEmbedding"
+78-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:51:13-44
+79            android:value="2" />
+79-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:52:13-30
+80
+81        <service
+81-->[:firebase_storage] C:\src\proyectos\paseo_de_acordeon\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+82            android:name="com.google.firebase.components.ComponentDiscoveryService"
+82-->[:firebase_storage] C:\src\proyectos\paseo_de_acordeon\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-89
+83            android:directBootAware="true"
+83-->[com.google.firebase:firebase-common:19.3.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\c70433feb70a2dacb56c1141193d45b2\jetified-firebase-common-19.3.0\AndroidManifest.xml:34:13-43
+84            android:exported="false" >
+84-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a83bb62cb43b672cf00b874e0ee6110c\firebase-auth-19.2.0\AndroidManifest.xml:35:13-37
+85            <meta-data
+85-->[:firebase_storage] C:\src\proyectos\paseo_de_acordeon\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+86                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
+86-->[:firebase_storage] C:\src\proyectos\paseo_de_acordeon\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-126
+87                android:value="com.google.firebase.components.ComponentRegistrar" />
+87-->[:firebase_storage] C:\src\proyectos\paseo_de_acordeon\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+88            <meta-data
+88-->[:firebase_auth] C:\src\proyectos\paseo_de_acordeon\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+89                android:name="com.google.firebase.components:io.flutter.plugins.firebaseauth.FlutterFirebaseAppRegistrar"
+89-->[:firebase_auth] C:\src\proyectos\paseo_de_acordeon\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-122
+90                android:value="com.google.firebase.components.ComponentRegistrar" />
+90-->[:firebase_auth] C:\src\proyectos\paseo_de_acordeon\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+91            <meta-data
+91-->[:cloud_firestore] C:\src\proyectos\paseo_de_acordeon\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+92                android:name="com.google.firebase.components:io.flutter.plugins.firebase.cloudfirestore.FlutterFirebaseAppRegistrar"
+92-->[:cloud_firestore] C:\src\proyectos\paseo_de_acordeon\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-133
+93                android:value="com.google.firebase.components.ComponentRegistrar" />
+93-->[:cloud_firestore] C:\src\proyectos\paseo_de_acordeon\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+94            <meta-data
+94-->[:firebase_database] C:\src\proyectos\paseo_de_acordeon\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+95                android:name="com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar"
+95-->[:firebase_database] C:\src\proyectos\paseo_de_acordeon\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-127
+96                android:value="com.google.firebase.components.ComponentRegistrar" />
+96-->[:firebase_database] C:\src\proyectos\paseo_de_acordeon\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+97            <meta-data
+97-->[:firebase_core] C:\src\proyectos\paseo_de_acordeon\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+98                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseAppRegistrar"
+98-->[:firebase_core] C:\src\proyectos\paseo_de_acordeon\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-123
+99                android:value="com.google.firebase.components.ComponentRegistrar" />
+99-->[:firebase_core] C:\src\proyectos\paseo_de_acordeon\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+100            <meta-data
+100-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a83bb62cb43b672cf00b874e0ee6110c\firebase-auth-19.2.0\AndroidManifest.xml:36:13-38:85
+101                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+101-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a83bb62cb43b672cf00b874e0ee6110c\firebase-auth-19.2.0\AndroidManifest.xml:37:17-109
+102                android:value="com.google.firebase.components.ComponentRegistrar" />
+102-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a83bb62cb43b672cf00b874e0ee6110c\firebase-auth-19.2.0\AndroidManifest.xml:38:17-82
+103            <meta-data
+103-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\ca912bff2260618b5b638fe661521702\play-services-measurement-api-17.2.2\AndroidManifest.xml:30:13-32:85
+104                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+104-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\ca912bff2260618b5b638fe661521702\play-services-measurement-api-17.2.2\AndroidManifest.xml:31:17-139
+105                android:value="com.google.firebase.components.ComponentRegistrar" />
+105-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\ca912bff2260618b5b638fe661521702\play-services-measurement-api-17.2.2\AndroidManifest.xml:32:17-82
+106            <meta-data
+106-->[com.google.firebase:firebase-storage:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\1aaa2ace0f6400a326435e5a0a9a9f3e\jetified-firebase-storage-17.0.0\AndroidManifest.xml:31:13-33:85
+107                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+107-->[com.google.firebase:firebase-storage:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\1aaa2ace0f6400a326435e5a0a9a9f3e\jetified-firebase-storage-17.0.0\AndroidManifest.xml:32:17-107
+108                android:value="com.google.firebase.components.ComponentRegistrar" />
+108-->[com.google.firebase:firebase-storage:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\1aaa2ace0f6400a326435e5a0a9a9f3e\jetified-firebase-storage-17.0.0\AndroidManifest.xml:33:17-82
+109            <meta-data
+109-->[com.google.firebase:firebase-firestore:21.3.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\5b1dc74fdacc92ffdc763fb6cfa068c0\jetified-firebase-firestore-21.3.0\AndroidManifest.xml:20:13-22:85
+110                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+110-->[com.google.firebase:firebase-firestore:21.3.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\5b1dc74fdacc92ffdc763fb6cfa068c0\jetified-firebase-firestore-21.3.0\AndroidManifest.xml:21:17-111
+111                android:value="com.google.firebase.components.ComponentRegistrar" />
+111-->[com.google.firebase:firebase-firestore:21.3.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\5b1dc74fdacc92ffdc763fb6cfa068c0\jetified-firebase-firestore-21.3.0\AndroidManifest.xml:22:17-82
+112            <meta-data
+112-->[com.google.firebase:firebase-database:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\c67d2d4e1afa342b358af4c86f2691c0\jetified-firebase-database-17.0.0\AndroidManifest.xml:30:13-32:85
+113                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+113-->[com.google.firebase:firebase-database:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\c67d2d4e1afa342b358af4c86f2691c0\jetified-firebase-database-17.0.0\AndroidManifest.xml:31:17-109
+114                android:value="com.google.firebase.components.ComponentRegistrar" />
+114-->[com.google.firebase:firebase-database:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\c67d2d4e1afa342b358af4c86f2691c0\jetified-firebase-database-17.0.0\AndroidManifest.xml:32:17-82
+115            <meta-data
+115-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\f26cdfb5f8d69cbc9663543f3ec1de65\firebase-iid-20.0.2\AndroidManifest.xml:32:13-34:85
+116                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+116-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\f26cdfb5f8d69cbc9663543f3ec1de65\firebase-iid-20.0.2\AndroidManifest.xml:33:17-96
+117                android:value="com.google.firebase.components.ComponentRegistrar" />
+117-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\f26cdfb5f8d69cbc9663543f3ec1de65\firebase-iid-20.0.2\AndroidManifest.xml:34:17-82
+118        </service>
+119
+120        <provider
+120-->[:image_picker] C:\src\proyectos\paseo_de_acordeon\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-19:20
+121            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+121-->[:image_picker] C:\src\proyectos\paseo_de_acordeon\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-82
+122            android:authorities="com.example.paseo_de_acordeon.flutter.image_provider"
+122-->[:image_picker] C:\src\proyectos\paseo_de_acordeon\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-74
+123            android:exported="false"
+123-->[:image_picker] C:\src\proyectos\paseo_de_acordeon\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+124            android:grantUriPermissions="true" >
+124-->[:image_picker] C:\src\proyectos\paseo_de_acordeon\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-47
+125            <meta-data
+125-->[:image_picker] C:\src\proyectos\paseo_de_acordeon\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-18:75
+126                android:name="android.support.FILE_PROVIDER_PATHS"
+126-->[:image_picker] C:\src\proyectos\paseo_de_acordeon\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:17:17-67
+127                android:resource="@xml/flutter_image_picker_file_paths" />
+127-->[:image_picker] C:\src\proyectos\paseo_de_acordeon\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-72
+128        </provider> <!-- Needs to be explicitly declared on P+ -->
+129        <uses-library
+129-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\6f4e6eb26f6c204062e462fe30c558b2\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+130            android:name="org.apache.http.legacy"
+130-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\6f4e6eb26f6c204062e462fe30c558b2\play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+131            android:required="false" />
+131-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\6f4e6eb26f6c204062e462fe30c558b2\play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+132
+133        <activity
+133-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a83bb62cb43b672cf00b874e0ee6110c\firebase-auth-19.2.0\AndroidManifest.xml:24:9-31:50
+134            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+134-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a83bb62cb43b672cf00b874e0ee6110c\firebase-auth-19.2.0\AndroidManifest.xml:25:13-85
+135            android:excludeFromRecents="true"
+135-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a83bb62cb43b672cf00b874e0ee6110c\firebase-auth-19.2.0\AndroidManifest.xml:26:13-46
+136            android:exported="true"
+136-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a83bb62cb43b672cf00b874e0ee6110c\firebase-auth-19.2.0\AndroidManifest.xml:27:13-36
+137            android:launchMode="singleTask"
+137-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a83bb62cb43b672cf00b874e0ee6110c\firebase-auth-19.2.0\AndroidManifest.xml:28:13-44
+138            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+138-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a83bb62cb43b672cf00b874e0ee6110c\firebase-auth-19.2.0\AndroidManifest.xml:29:13-102
+139            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+139-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a83bb62cb43b672cf00b874e0ee6110c\firebase-auth-19.2.0\AndroidManifest.xml:30:13-72
+140
+141        <receiver
+141-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:29:9-33:20
+142            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+142-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:30:13-85
+143            android:enabled="true"
+143-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:31:13-35
+144            android:exported="false" >
+144-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:32:13-37
+145        </receiver>
+146        <receiver
+146-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:34:9-42:20
+147            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+147-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:35:13-100
+148            android:enabled="true"
+148-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:36:13-35
+149            android:exported="true"
+149-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:37:13-36
+150            android:permission="android.permission.INSTALL_PACKAGES" >
+150-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:38:13-69
+151            <intent-filter>
+151-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:39:13-41:29
+152                <action android:name="com.android.vending.INSTALL_REFERRER" />
+152-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:40:17-79
+152-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:40:25-76
+153            </intent-filter>
+154        </receiver>
+155
+156        <service
+156-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:44:9-47:40
+157            android:name="com.google.android.gms.measurement.AppMeasurementService"
+157-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:45:13-84
+158            android:enabled="true"
+158-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:46:13-35
+159            android:exported="false" />
+159-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:47:13-37
+160        <service
+160-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:48:9-52:72
+161            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+161-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:49:13-87
+162            android:enabled="true"
+162-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:50:13-35
+163            android:exported="false"
+163-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:51:13-37
+164            android:permission="android.permission.BIND_JOB_SERVICE" />
+164-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\a2d3f38d709f8b9f54c2677fdca8f29a\play-services-measurement-17.2.2\AndroidManifest.xml:52:13-69
+165
+166        <activity
+166-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\04d2e46906f35fc209c85851857769be\jetified-play-services-auth-16.0.1\AndroidManifest.xml:23:9-27:75
+167            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+167-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\04d2e46906f35fc209c85851857769be\jetified-play-services-auth-16.0.1\AndroidManifest.xml:24:13-93
+168            android:excludeFromRecents="true"
+168-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\04d2e46906f35fc209c85851857769be\jetified-play-services-auth-16.0.1\AndroidManifest.xml:25:13-46
+169            android:exported="false"
+169-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\04d2e46906f35fc209c85851857769be\jetified-play-services-auth-16.0.1\AndroidManifest.xml:26:13-37
+170            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+170-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\04d2e46906f35fc209c85851857769be\jetified-play-services-auth-16.0.1\AndroidManifest.xml:27:13-72
+171        <!--
+172            Service handling Google Sign-In user revocation. For apps that do not integrate with
+173            Google Sign-In, this service will never be started.
+174        -->
+175        <service
+175-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\04d2e46906f35fc209c85851857769be\jetified-play-services-auth-16.0.1\AndroidManifest.xml:33:9-36:110
+176            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+176-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\04d2e46906f35fc209c85851857769be\jetified-play-services-auth-16.0.1\AndroidManifest.xml:34:13-89
+177            android:exported="true"
+177-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\04d2e46906f35fc209c85851857769be\jetified-play-services-auth-16.0.1\AndroidManifest.xml:35:13-36
+178            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+178-->[com.google.android.gms:play-services-auth:16.0.1] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\04d2e46906f35fc209c85851857769be\jetified-play-services-auth-16.0.1\AndroidManifest.xml:36:13-107
+179
+180        <receiver
+180-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\f26cdfb5f8d69cbc9663543f3ec1de65\firebase-iid-20.0.2\AndroidManifest.xml:37:9-44:20
+181            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+181-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\f26cdfb5f8d69cbc9663543f3ec1de65\firebase-iid-20.0.2\AndroidManifest.xml:38:13-78
+182            android:exported="true"
+182-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\f26cdfb5f8d69cbc9663543f3ec1de65\firebase-iid-20.0.2\AndroidManifest.xml:39:13-36
+183            android:permission="com.google.android.c2dm.permission.SEND" >
+183-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\f26cdfb5f8d69cbc9663543f3ec1de65\firebase-iid-20.0.2\AndroidManifest.xml:40:13-73
+184            <intent-filter>
+184-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\f26cdfb5f8d69cbc9663543f3ec1de65\firebase-iid-20.0.2\AndroidManifest.xml:41:13-43:29
+185                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+185-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\f26cdfb5f8d69cbc9663543f3ec1de65\firebase-iid-20.0.2\AndroidManifest.xml:42:17-81
+185-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\f26cdfb5f8d69cbc9663543f3ec1de65\firebase-iid-20.0.2\AndroidManifest.xml:42:25-78
+186            </intent-filter>
+187        </receiver>
+188
+189        <provider
+189-->[com.google.firebase:firebase-common:19.3.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\c70433feb70a2dacb56c1141193d45b2\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
+190            android:name="com.google.firebase.provider.FirebaseInitProvider"
+190-->[com.google.firebase:firebase-common:19.3.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\c70433feb70a2dacb56c1141193d45b2\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
+191            android:authorities="com.example.paseo_de_acordeon.firebaseinitprovider"
+191-->[com.google.firebase:firebase-common:19.3.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\c70433feb70a2dacb56c1141193d45b2\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
+192            android:exported="false"
+192-->[com.google.firebase:firebase-common:19.3.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\c70433feb70a2dacb56c1141193d45b2\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
+193            android:initOrder="100" />
+193-->[com.google.firebase:firebase-common:19.3.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\c70433feb70a2dacb56c1141193d45b2\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
+194
+195        <activity
+195-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\6eb14f512292913515d869914807ad40\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+196            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+196-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\6eb14f512292913515d869914807ad40\play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+197            android:exported="false"
+197-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\6eb14f512292913515d869914807ad40\play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+198            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+198-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\6eb14f512292913515d869914807ad40\play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+199
+200        <meta-data
+200-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\5d14840e9639b42b61ff292b44112a22\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+201            android:name="com.google.android.gms.version"
+201-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\5d14840e9639b42b61ff292b44112a22\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+202            android:value="@integer/google_play_services_version" />
+202-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\5d14840e9639b42b61ff292b44112a22\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+203    </application>
+204
+205</manifest>

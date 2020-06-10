@@ -1,3 +1,0 @@
-1) Vaya a los ajustes de su dispositivo, busque el apartado de seguridad y active la casilla de "instalar aplic. desconocidas".
-2) Abra el archivo "app.apk" y dele a instalar.
-Nota: si la app no se instala aun, intente desactivando los mismo permisos de análisis de app en la app de Google Play (en la sección de Play Protect).

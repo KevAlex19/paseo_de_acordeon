@@ -1,7 +1,7 @@
-class TasktoDo {
+class TasktoDoP {
   final String img;
   final String title;
   final String body;
 
-  TasktoDo(this.img, this.title, this.body);
+  TasktoDoP(this.img, this.title, this.body);
 }

@@ -1,7 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:paseo_de_acordeon/models/experiences.dart';
-import 'package:paseo_de_acordeon/models/toDo.dart';
+import 'package:paseo_de_acordeon/models/event.dart';
 import 'package:paseo_de_acordeon/views/content/uploadExp.dart';
 import 'package:paseo_de_acordeon/views/content/toDoLayout.dart';
 
@@ -41,7 +41,9 @@ class _MyDetailPageState extends State<ExperienceLayaout> {
             data[individualKey]['image'],
             data[individualKey]['description'],
             data[individualKey]['date'],
-            data[individualKey]['time']);
+            data[individualKey]['time'],
+            data[individualKey]['type']);
+
         xpList.add(exp);
       }
       setState(() {

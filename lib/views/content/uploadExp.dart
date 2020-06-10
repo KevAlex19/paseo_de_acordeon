@@ -8,7 +8,9 @@ import 'dart:io';
 import 'package:intl/intl.dart';
 
 class UploadXP extends StatefulWidget {
-  UploadXP({Key key}) : super(key: key);
+  final String _type;
+  UploadXP(this._type);
+  //UploadXP({Key key}) : super(key: key);
 
   @override
   _UploadXPState createState() => _UploadXPState();
@@ -19,23 +21,29 @@ class _UploadXPState extends State<UploadXP> {
   final key = GlobalKey<FormState>();
   String _value;
   String url;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: sampleImage == null ? Text("Select an Image") : enableUpload(),
-      ),
-      bottomSheet: Align(
-        heightFactor: 1,
-        alignment: Alignment.bottomCenter,
-              child: RaisedButton.icon(
-          color: Colors.blueAccent,
-          label: Text(
-            'Upload',
-          ),
-          onPressed: getImage,
-          icon: Icon(Icons.file_upload),
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: sampleImage == null
+                  ? Text("Select an Image")
+                  : Expanded(child: enableUpload()),
+            ),
+            Container(),
+            RaisedButton.icon(
+              color: Colors.blueAccent,
+              label: Text(
+                'Seleccionar',
+              ),
+              onPressed: getImage,
+              icon: Icon(Icons.file_upload),
+            ),
+          ],
         ),
       ),
     );
@@ -54,14 +62,6 @@ class _UploadXPState extends State<UploadXP> {
         key: key,
         child: Column(
           children: <Widget>[
-            Image.file(
-              sampleImage,
-              height: 300,
-              width: 600,
-            ),
-            SizedBox(
-              height: 15,
-            ),
             TextFormField(
               decoration: InputDecoration(labelText: "Description"),
               validator: (value) {
@@ -71,10 +71,18 @@ class _UploadXPState extends State<UploadXP> {
                 return _value = value;
               },
             ),
-            SizedBox(height: 15,),
-            RaisedButton(onPressed: uploadPost,
-            color: Colors.blueAccent,
-            child: Text('Add a new Post'),
+            SizedBox(
+              height: 5,
+            ),
+            Image.file(
+              sampleImage,
+              height: 300,
+              width: 600,
+            ),
+            RaisedButton(
+              onPressed: uploadPost,
+              color: Colors.blueAccent,
+              child: Text('A;adir post'),
             )
           ],
         ),
@@ -82,25 +90,26 @@ class _UploadXPState extends State<UploadXP> {
     );
   }
 
-  void uploadPost()async{
+  void uploadPost() async {
     if (validateAndSave()) {
-      final StorageReference newpost = FirebaseStorage.instance.ref().child("Post Exp");
+      final StorageReference newpost =
+          FirebaseStorage.instance.ref().child("Post Exp");
       var timeKey = DateTime.now();
-      final StorageUploadTask uploadTask = newpost.child(timeKey.toString()+".jpg").putFile(sampleImage);
+      final StorageUploadTask uploadTask =
+          newpost.child(timeKey.toString() + ".jpg").putFile(sampleImage);
       var imageUrl = await (await uploadTask.onComplete).ref.getDownloadURL();
       url = imageUrl.toString();
-      print('url: '+url);
+      print('url: ' + url);
 
       saveToDatabase(url);
 
       Navigator.pop(context);
-    } else {
-    }
+    } else {}
   }
 
-  void saveToDatabase(String url){
+  void saveToDatabase(String url) {
     var dbTimeKey = DateTime.now();
-    var formatDate= DateFormat('MMM d, yyyy');
+    var formatDate = DateFormat('MMM d, yyyy');
     var formatTime = DateFormat('EEE, hh:mm aaa');
 
     String date = formatDate.format(dbTimeKey);
@@ -112,18 +121,19 @@ class _UploadXPState extends State<UploadXP> {
       'image': url,
       'description': _value,
       'date': date,
-      'time': time
+      'time': time,
+      'type': this.widget._type
     };
 
     ref.child("Posts").push().set(data);
   }
 
-  bool validateAndSave(){
+  bool validateAndSave() {
     final form = key.currentState;
-    if(form.validate()){
+    if (form.validate()) {
       form.save();
       return true;
-    }else{
+    } else {
       return false;
     }
   }

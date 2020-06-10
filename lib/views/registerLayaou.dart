@@ -1,13 +1,10 @@
 import 'package:achievement_view/achievement_widget.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:paseo_de_acordeon/components/constans.dart';
 import 'package:paseo_de_acordeon/controllers/userController.dart';
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:achievement_view/achievement_view.dart';
-import 'package:firebase_database/firebase_database.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -116,6 +113,11 @@ class _MyHomePageState extends StateMVC<MyHomePageRe> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+          child: AppBar(
+            backgroundColor: Colors.blue,
+          ),
+          preferredSize: Size.fromHeight(0.1)),
       body: Form(
         key: _formKey,
         child: Stack(
@@ -149,41 +151,38 @@ class _MyHomePageState extends StateMVC<MyHomePageRe> {
               ),
             ),
             Container(
-              child: SingleChildScrollView(
-                physics: AlwaysScrollableScrollPhysics(),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 40.0,
-                  vertical: 50.0,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Sign up',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'OpenSans',
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+              padding: EdgeInsets.symmetric(
+                horizontal: 40.0,
+                vertical: 50.0,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Sign up',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'OpenSans',
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
                     ),
-                    _wForm('Email', Icons.email, false, _emailController),
-                    SizedBox(
-                      height: 30.0,
-                    ),
-                    _wForm('Password', Icons.lock, true, _passController),
-                    SizedBox(
-                      height: 30.0,
-                    ),
-                    _wForm('Confirm password', Icons.lock_outline, true,
-                        _passConfController),
-                    _registerBtn(),
-                    SizedBox(
-                      height: 30.0,
-                    ),
-                    _backBtn(),
-                  ],
-                ),
+                  ),
+                  _wForm('Email', Icons.email, false, _emailController),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  _wForm('Password', Icons.lock, true, _passController),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  _wForm('Confirm password', Icons.lock_outline, true,
+                      _passConfController),
+                  _registerBtn(),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  _backBtn(),
+                ],
               ),
             )
           ],
@@ -240,7 +239,7 @@ class _MyHomePageState extends StateMVC<MyHomePageRe> {
           showAlert(
               context,
               "Error!",
-              value.toString()+ " [Ivalid email, Please verify...]",
+              value.toString() + " [Ivalid email, Please verify...]",
               Icon(
                 Icons.error_outline,
                 color: Colors.red,

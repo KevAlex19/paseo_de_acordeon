@@ -1,5 +1,4 @@
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:paseo_de_acordeon/components/constans.dart';
 import 'package:paseo_de_acordeon/views/registerLayaou.dart' as register;
 import 'package:paseo_de_acordeon/views/loginGoogle.dart' as google;
@@ -13,16 +12,16 @@ import 'package:achievement_view/achievement_view.dart';
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
     return MyHomePage();
   }
 }
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-String _emailUser;
+
 
 class MyHomePage extends StatefulWidget {
+  
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
 
@@ -32,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends StateMVC<MyHomePage> {
   UserController _con;
+  String _emailUser="";
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
 
@@ -61,7 +61,6 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
           height: 60.0,
           child: TextFormField(
             controller: control,
-            keyboardType: TextInputType.emailAddress,
             obscureText: p,
             style: TextStyle(color: Colors.white, fontFamily: 'OpenSans'),
             decoration: InputDecoration(
@@ -185,14 +184,12 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
 
   Widget _continueBtn() {
     return Center(
-      child:
-      RaisedButton.icon(
+      child: RaisedButton.icon(
         color: Colors.blue.withOpacity(0.5),
         textColor: Colors.lightBlueAccent,
         onPressed: () {
-          Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context)=> menu.Menu())
-          );
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => menu.Menu(_emailUser)));
         },
         label: Text(
           'Continue without account',
@@ -233,6 +230,11 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+          child: AppBar(
+            backgroundColor: Colors.blue,
+          ),
+          preferredSize: Size.fromHeight(0.1)),
       body: Form(
         key: _formKey,
         child: Stack(
@@ -267,7 +269,6 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
             ),
             Container(
               child: SingleChildScrollView(
-                physics: AlwaysScrollableScrollPhysics(),
                 padding: EdgeInsets.symmetric(
                   horizontal: 40.0,
                   vertical: 0,
@@ -275,7 +276,7 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    SizedBox(height: 45,),
+                    SizedBox(height: 10,),
                     Text(
                       'Sign in',
                       style: TextStyle(
@@ -330,6 +331,8 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
               Icons.done,
               color: Colors.cyanAccent,
             ));
+            Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => menu.Menu(_emailUser)));
       } catch (e) {
         showAlert(
             context,
