@@ -6,11 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:paseo_de_acordeon/models/event.dart';
 import 'package:paseo_de_acordeon/views/content/detail.dart';
+import 'package:progress_indicators/progress_indicators.dart';
 
 class ToDoView extends StatefulWidget {
   //ToDoView({Key key, this.title}) : super(key: key);
   final String base, title, filter, user;
-  ToDoView(this.base, this.title, this.filter,this.user);
+  ToDoView(this.base, this.title, this.filter, this.user);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -33,7 +34,6 @@ class _MyHomePageState extends StateMVC<ToDoView> {
       items.clear();
       print('object');
       for (var individualKey in keys) {
-
         TasktoDo event = TasktoDo(
             data[individualKey]['image'],
             data[individualKey]['title'],
@@ -67,7 +67,9 @@ class _MyHomePageState extends StateMVC<ToDoView> {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            ctx, MaterialPageRoute(builder: (ctx) => MyDetailPage(tasktoDo,widget.user,"")));
+            ctx,
+            MaterialPageRoute(
+                builder: (ctx) => MyDetailPage(tasktoDo, widget.user, "")));
       },
       child: Card(
         color: Colors.black.withAlpha(1),
@@ -226,7 +228,10 @@ class _MyHomePageState extends StateMVC<ToDoView> {
           print(likes);
           print('object');
           Navigator.push(
-              ctx, MaterialPageRoute(builder: (ctx) => MyDetailPage(tasktoDo,widget.user,widget.base)));
+              ctx,
+              MaterialPageRoute(
+                  builder: (ctx) =>
+                      MyDetailPage(tasktoDo, widget.user, widget.base)));
         });
   }
 
@@ -234,6 +239,52 @@ class _MyHomePageState extends StateMVC<ToDoView> {
   Widget build(BuildContext context) {
     List<Widget> tasks =
         List.generate(items.length, (index) => cardTemplate2(context, index));
+
+    List<Widget> wait = List.generate(
+        4,
+        (index) => GlowingProgressIndicator(
+                child: Card(
+              elevation: 24,
+              margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    height: 70,
+                    width: 70,
+                    color: Colors.black12,
+                    margin: EdgeInsets.fromLTRB(20, 30, 20, 30),
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Container(
+                        height: 10,
+                        width: 250,
+                        color: Colors.black12,
+                        margin: EdgeInsets.only(bottom: 7),
+                      ),
+                      Container(
+                        height: 10,
+                        width: 240,
+                        color: Colors.black12,
+                        margin: EdgeInsets.only(bottom: 7),
+                      ),
+                      Container(
+                        height: 10,
+                        width: 230,
+                        color: Colors.black12,
+                        margin: EdgeInsets.only(bottom: 7),
+                      ),
+                      Container(
+                        height: 10,
+                        width: 230,
+                        color: Colors.black12,
+                        margin: EdgeInsets.only(bottom: 7),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )));
 
     return Scaffold(
       appBar: PreferredSize(
@@ -261,7 +312,9 @@ class _MyHomePageState extends StateMVC<ToDoView> {
                 ),
               ),
             ),
-            SliverList(delegate: SliverChildListDelegate(tasks))
+            SliverList(
+                delegate:
+                    SliverChildListDelegate(tasks.isEmpty ? wait : tasks)),
           ],
           /* child: Center(
             child: Stack(

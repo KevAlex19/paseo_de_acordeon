@@ -1,5 +1,6 @@
 import 'package:flutter/rendering.dart';
 import 'package:paseo_de_acordeon/components/constans.dart';
+import 'package:paseo_de_acordeon/controllers/pushNotification.dart';
 import 'package:paseo_de_acordeon/views/registerLayaou.dart' as register;
 import 'package:paseo_de_acordeon/views/loginGoogle.dart' as google;
 import 'package:paseo_de_acordeon/views/content/menu.dart' as menu;
@@ -30,6 +31,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends StateMVC<MyHomePage> {
+
+  @override
+  void initState() { 
+    super.initState();
+  }
+
   UserController _con;
   String _emailUser="";
   final TextEditingController _emailController = TextEditingController();
@@ -38,6 +45,8 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
   _MyHomePageState() : super(UserController()) {
     _con = controller;
   }
+
+
   bool _rememberMe = false;
 
   Widget _wForm(String name, IconData ico, bool p,
@@ -189,7 +198,7 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
         textColor: Colors.lightBlueAccent,
         onPressed: () {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => menu.Menu(_emailUser)));
+              context, MaterialPageRoute(builder: (context) => MyAppF()));//menu.Menu(_emailUser)));
         },
         label: Text(
           'Continue without account',
@@ -230,6 +239,7 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: PreferredSize(
           child: AppBar(
             backgroundColor: Colors.blue,
@@ -261,8 +271,7 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
                     image: AssetImage('assets/glorieta.jpg'),
                     colorFilter:
                         ColorFilter.mode(Colors.black, BlendMode.dstATop),
-                    alignment: Alignment.center,
-                    centerSlice: Rect.largest,
+                    fit: BoxFit.fill
                   ),
                 ),
               ),

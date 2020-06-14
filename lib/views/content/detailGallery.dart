@@ -1,31 +1,47 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
 class Gallery extends StatefulWidget {
+  final String title;
+
+  Gallery(this.title);
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<Gallery> {
-  final List<List<String>> products = [
-    [
-      'assets/descarga.jpg',
-      'Avistamiento',
-      '100 \$'
-    ],
-    [
-      'assets/aves.jpg',
-      'Avistamiento',
-      '100 \$'
-    ],
-  ];
+  List<String> images = [];
+  Map<String, List<dynamic>> galleryURLs = new Map<String, List<dynamic>>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    Firestore.instance
+          .collection("likes")
+          .document(widget.title)
+          .get()
+          .then((value) {
+        if (value.data != null) {
+          setState(() {
+            images = galleryURLs
+              .putIfAbsent(widget.title, () => value.data["gallery"])
+              .cast<String>();
+          });
+        }
+      });
+  }
+
+
 
   int currentIndex = 0;
 
   void _next() {
     setState(() {
-      if (currentIndex < products.length -1) {
+      if (currentIndex < images.length -1) {
         currentIndex++;
       } else {
         currentIndex = currentIndex;
@@ -69,8 +85,8 @@ class _HomePageState extends State<Gallery> {
                 height: 550,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(products[currentIndex][0]),
-                    fit: BoxFit.cover
+                    image: images.length == 0? AssetImage("assets/loading.gif") : NetworkImage(images[currentIndex]),
+                    fit: BoxFit.none
                   )
                 ),
                 child: Container(
@@ -97,14 +113,14 @@ class _HomePageState extends State<Gallery> {
                   ),
                 ),
               ),
-              onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> Viewer(products))),
+              onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> Viewer(images))),
             ),
             Expanded(
               child: Transform.translate(
                 offset: Offset(0, -40),
                 child: Container(
                   width: double.infinity,
-                  padding: EdgeInsets.all(30),
+                  padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
@@ -112,7 +128,7 @@ class _HomePageState extends State<Gallery> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(products[currentIndex][1], style: TextStyle(color: Colors.grey[800], fontSize: 40, fontWeight: FontWeight.bold),),
+                      Text(widget.title, style: TextStyle(color: Colors.grey[800], fontSize: 30, fontWeight: FontWeight.bold),),
                       
                     ],
                   ),
@@ -141,7 +157,7 @@ class _HomePageState extends State<Gallery> {
 
   List<Widget> _buildIndicator() {
     List<Widget> indicators = [];
-    for(int i = 0; i < products.length; i++) {
+    for(int i = 0; i < images.length; i++) {
       if (currentIndex == i) {
         indicators.add(_indicator(true));
       } else {
@@ -154,7 +170,7 @@ class _HomePageState extends State<Gallery> {
 }
 
 class Viewer extends StatefulWidget {
-  final List<List<String>> img;
+  final List<String> img;
   List<PhotoViewGalleryPageOptions> pageOptions = [];
   Viewer(this.img);
   //Viewer({Key key}) : super(key: key);
@@ -178,7 +194,7 @@ class _ViewerState extends State<Viewer> {
       scrollPhysics: const BouncingScrollPhysics(),
       builder: (BuildContext context, int index) {
         return PhotoViewGalleryPageOptions(
-          imageProvider: AssetImage(widget.img[index][0]),
+          imageProvider: NetworkImage(widget.img[index]),
           initialScale: PhotoViewComputedScale.contained * 0.8,
         );
       }, itemCount: widget.img.length,

@@ -3,6 +3,7 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:paseo_de_acordeon/models/experiences.dart';
 import 'package:paseo_de_acordeon/views/content/detailGallery.dart';
 import 'package:paseo_de_acordeon/views/content/favMenu.dart';
+import 'package:paseo_de_acordeon/views/content/gallery.dart';
 import 'package:paseo_de_acordeon/views/content/toDoLayout.dart';
 import 'package:paseo_de_acordeon/components/constans.dart';
 import 'package:paseo_de_acordeon/views/content/touristSiteLayout.dart';
@@ -79,11 +80,7 @@ class _MyHomePageState extends StateMVC<Menu> {
             children: <Widget>[
               new Expanded(
                   child: Container()),
-              new Expanded(
-                  child: _planetValue(
-                      value: "Experiences",
-                      ico: Icons.star,
-                      color: Colors.amberAccent))
+              
             ],
           ),
         ],
@@ -195,8 +192,8 @@ class _MyHomePageState extends StateMVC<Menu> {
           '2',
           style: kLabelStyle,
         ),
-        Gallery(),
-        Icons.eject));
+        GalleryLayaout(),
+        Icons.photo_library));
     items.add(cardTemplate2(
         Text(
           'Gastronomía',
@@ -283,7 +280,7 @@ class _MyHomePageState extends StateMVC<Menu> {
                               size: 30,
                             )))
                   ]),
-                  height: 170,
+                  height: 120,
                   color: Colors.blue,
                 ),
                 FlatButton.icon(
@@ -293,7 +290,7 @@ class _MyHomePageState extends StateMVC<Menu> {
                       color: Colors.red,
                     ),
                     label: Expanded(child: Text("   Favoritos")),
-                    onPressed: (){Navigator.pop(context); Navigator.push(context, MaterialPageRoute(builder: (context) => FavView("EventsPlaces", "Favoritos", "all", widget.user)));}),
+                    onPressed: ()=> widget.user == ""? showDialogExit(context, "Si", "No", "Accion denegada", "Para continnuar debe iniciar sesion") : {Navigator.pop(context), Navigator.push(context, MaterialPageRoute(builder: (context) => FavView("EventsPlaces", "Favoritos", "all", widget.user)))}),
                 FlatButton.icon(
                   color: Colors.white,
                     icon: Icon(
@@ -310,7 +307,7 @@ class _MyHomePageState extends StateMVC<Menu> {
                       color: Colors.red,
                     ),
                     label: Expanded(child: Text("   Salir")),
-                    onPressed: ()=> showAlertDialog(context),)
+                    onPressed: ()=> showDialogExit(context, "Si", "No", "Saliendo", "¿Desea salir de la sesión?"),)
               ],
             ),
           ),
@@ -342,23 +339,23 @@ class _MyHomePageState extends StateMVC<Menu> {
   }
 }
 
-showAlertDialog(BuildContext context) {
+showDialogExit(BuildContext context, String resp1, String resp2, String head, String body) {
 
   // set up the button
   Widget okButton = FlatButton(
-    child: Text("Si"),
-    onPressed: () {Navigator.pushReplacement(
+    child: Text(resp1),
+    onPressed: () {Navigator.pop(context); Navigator.pop(context); Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => MyApp())); },
   );
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
     elevation: 24,
-    title: Text("Cerrando sesión"),
-    content: Text("¿Desea salir de la sesión?"),
+    title: Text(head),
+    content: Text(body),
     actions: [
       FlatButton(onPressed: () { Navigator.pop(context); },
-      child: Text("No"),),
+      child: Text(resp2),),
       okButton,
     ],
   );

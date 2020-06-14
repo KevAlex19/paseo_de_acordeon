@@ -113,6 +113,7 @@ class _MyHomePageState extends StateMVC<MyHomePageRe> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: PreferredSize(
           child: AppBar(
             backgroundColor: Colors.blue,
