@@ -63,12 +63,12 @@ class _MyHomePageState extends StateMVC<MyHomePageRe> {
                 ico,
                 color: Colors.white,
               ),
-              hintText: 'Enter your ' + name,
+              hintText: 'Ingrese su ' + name,
               hintStyle: kHintTextStyle,
             ),
             validator: (String value) {
               if (value.isEmpty) {
-                return 'Please enter some text';
+                return 'Verifique los campos';
               }
             },
           ),
@@ -90,7 +90,7 @@ class _MyHomePageState extends StateMVC<MyHomePageRe> {
         ),
         color: Colors.blue,
         child: Text(
-          'SIGN UP',
+          'Registrarse',
           style: TextStyle(
             color: Colors.white,
             letterSpacing: 1.5,
@@ -104,9 +104,22 @@ class _MyHomePageState extends StateMVC<MyHomePageRe> {
   }
 
   Widget _backBtn() {
-    return FloatingActionButton(
-      onPressed: () => Navigator.of(context).pop(false),
-      child: Icon(Icons.arrow_back),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20)
+      ),
+      margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.26),
+      child: MaterialButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),),
+        color: Colors.blue,
+        onPressed: () => Navigator.of(context).pop(false),
+        child: Row(
+          children: <Widget>[
+            Icon(Icons.arrow_back_ios, color: Colors.white,),
+            Text("Volver", style: TextStyle(fontSize: 18, color: Colors.white),)
+          ],
+        ),
+      ),
     );
   }
 
@@ -160,7 +173,7 @@ class _MyHomePageState extends StateMVC<MyHomePageRe> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'Sign up',
+                    'Registro',
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: 'OpenSans',
@@ -172,11 +185,11 @@ class _MyHomePageState extends StateMVC<MyHomePageRe> {
                   SizedBox(
                     height: 30.0,
                   ),
-                  _wForm('Password', Icons.lock, true, _passController),
+                  _wForm('Contraseña', Icons.lock, true, _passController),
                   SizedBox(
                     height: 30.0,
                   ),
-                  _wForm('Confirm password', Icons.lock_outline, true,
+                  _wForm('Contraseña', Icons.lock_outline, true,
                       _passConfController),
                   _registerBtn(),
                   SizedBox(
@@ -216,7 +229,7 @@ class _MyHomePageState extends StateMVC<MyHomePageRe> {
           showAlert(
               context,
               "Error!",
-              "Please verify the passwords",
+              "Verifique sus contraseñas",
               Icon(
                 Icons.error_outline,
                 color: Colors.red,
@@ -228,8 +241,8 @@ class _MyHomePageState extends StateMVC<MyHomePageRe> {
           });
           showAlert(
               context,
-              "Great!",
-              "Thanks, Your registration has been successful",
+              "Genial!",
+              "Su registro fue exitoso",
               Icon(
                 Icons.done,
                 color: Colors.cyanAccent,
@@ -251,7 +264,7 @@ class _MyHomePageState extends StateMVC<MyHomePageRe> {
       showAlert(
           context,
           "Error!",
-          "Please verify...",
+          "Por favor verifique...",
           Icon(
             Icons.error_outline,
             color: Colors.red,

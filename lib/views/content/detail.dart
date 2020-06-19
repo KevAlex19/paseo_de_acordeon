@@ -107,7 +107,13 @@ class _MyDetailPageState extends State<MyDetailPage> {
       }
     });
 
-    _shoWait();
+    if (!clockWait) {
+      Future.delayed(Duration(seconds: 10)).whenComplete((){
+        setState(() {
+          clockWait=true;
+        });
+      });
+    }
   }
 
   _pressedLike() {
@@ -181,8 +187,20 @@ class _MyDetailPageState extends State<MyDetailPage> {
               margin: EdgeInsets.symmetric(horizontal: 14),
               child: Center(
                 child: Text(
-                  'Experiences',
-                  style: TextStyle(fontSize: 23, color: Colors.white),
+                  'Experiencias',
+                  style: TextStyle(fontSize: 25, color: Colors.white),
+                ),
+              ),
+            ));
+    final List<Widget> noXP = List.generate(
+        1,
+        (index) => Card(
+              shape: BeveledRectangleBorder(),
+              margin: EdgeInsets.symmetric(horizontal: 14),
+              child: Center(
+                child: Text(
+                  'Actualmente no hay experiencias',
+                  style: TextStyle(fontSize: 25, color: Colors.grey),
                 ),
               ),
             ));
@@ -204,10 +222,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                                 liked ? Icons.favorite : Icons.favorite_border,
                                 color: Colors.blue,
                               )),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(widget._taskToDo.like.toString()),
+                          Text("\n"+widget._taskToDo.like.toString()),
                         ],
                       ),
                     ),
@@ -216,7 +231,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                       child: Column(
                         children: <Widget>[
                           Icon(Icons.calendar_today),
-                          Text(widget._taskToDo.date)
+                          Text(widget._taskToDo.date.length>13? widget._taskToDo.date : "\n"+widget._taskToDo.date, textAlign: TextAlign.center,)
                         ],
                       ),
                     ),
@@ -227,10 +242,8 @@ class _MyDetailPageState extends State<MyDetailPage> {
                           GestureDetector(
                             onTap:  () => Navigator.push(context, MaterialPageRoute(builder: (context)=> Gallery(widget._taskToDo.title))),
                             child: Icon(Icons.photo_library)),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text('picsC')
+                          
+                          Text('\nFotos')
                         ],
                       ),
                     ),
@@ -245,10 +258,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                                     builder: (context) =>
                                         MapScreen(widget._taskToDo.title))),
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text('Map')
+                          Text('\nMapa')
                         ],
                       ),
                     ),
@@ -269,24 +279,21 @@ class _MyDetailPageState extends State<MyDetailPage> {
                             ]),
                             onTap: () => _pressFav(),
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text('Add')
+                          Text('\nFavoritos')
                         ],
                       ),
                     )
                   ],
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 11,
                 ),
               ],
             ));
     final List<Widget> items = List.generate(
       xpList.length,
       (index) => cardXP(xpList[index].image, xpList[index].description,
-          xpList[index].date, xpList[index].time, xpList[index].type),
+          xpList[index].date, xpList[index].time, ""),
     );
 
     List<Widget> wait = List.generate(
@@ -298,7 +305,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
               child: Column(
                 children: <Widget>[
                   Container(
-                    height: 200,
+                    height: MediaQuery.of(context).size.width*0.4,
                     width: 270,
                     color: Colors.black12,
                     margin: EdgeInsets.fromLTRB(20, 30, 20, 30),
@@ -346,9 +353,9 @@ class _MyDetailPageState extends State<MyDetailPage> {
           ),
           SliverList(
               delegate: xpList.length == 0
-                  ? SliverChildListDelegate(empty + map + xp + wait)
+                  ? SliverChildListDelegate(empty + map + xp + (clockWait? noXP :wait))
                   : SliverChildListDelegate(
-                      empty + map + xp + ( clockWait? items : wait))),
+                      empty + map + xp + items )),
         ]
             /*
           Center(
@@ -363,7 +370,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
             ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () =>
+        onPressed: () => widget.user==""? showAlertDialog(context):
             Navigator.push(context, MaterialPageRoute(builder: (context) {
           return UploadXP(widget._taskToDo.title);
         })),
@@ -378,13 +385,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
     });
   }
 
-  _shoWait(){
-    Future.delayed(Duration(seconds: 3), (){
-      setState(() {
-        clockWait=true;
-      });
-    });
-  }
+
 
   Widget cardXP(
       String image, String description, String date, String time, String type) {
@@ -418,14 +419,17 @@ class _MyDetailPageState extends State<MyDetailPage> {
             SizedBox(
               height: 10,
             ),
-            Image.network(
-              image,
-              fit: BoxFit.cover,
+            Center(
+              child: Image.network(
+                image,
+                fit: BoxFit.cover,
+              ),
             ),
+            SizedBox(height: 15,),
             Text(
               description,
               style: Theme.of(context).textTheme.subtitle1,
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.justify,
             )
           ],
         ),
@@ -467,7 +471,7 @@ showAlertDialog(BuildContext context) {
     child: Text("OK"),
     onPressed: () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => MyApp()));
+          context, MaterialPageRoute(builder: (context) => MyAppLogin()));
     },
   );
 

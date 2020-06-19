@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
 import 'package:intl/intl.dart';
+import 'package:paseo_de_acordeon/controllers/pushNotification.dart';
 
 class UploadXP extends StatefulWidget {
   final String _type;
@@ -25,23 +26,28 @@ class _UploadXPState extends State<UploadXP> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(),
       body: Center(
         child: Column(
           children: <Widget>[
             Container(
               child: sampleImage == null
-                  ? Text("Select an Image")
+                  ? Text("Seleccione una imagen")
                   : Expanded(child: enableUpload()),
             ),
             Container(),
-            RaisedButton.icon(
-              color: Colors.blueAccent,
-              label: Text(
-                'Seleccionar',
-              ),
-              onPressed: getImage,
-              icon: Icon(Icons.file_upload),
+            Container(
+              child: sampleImage == null
+                  ? RaisedButton.icon(
+                      color: Colors.blueAccent,
+                      label: Text(
+                        'Seleccionar',
+                      ),
+                      onPressed: getImage,
+                      icon: Icon(Icons.file_upload),
+                    )
+                  : null,
             ),
           ],
         ),
@@ -63,9 +69,11 @@ class _UploadXPState extends State<UploadXP> {
         child: Column(
           children: <Widget>[
             TextFormField(
-              decoration: InputDecoration(labelText: "Description"),
+              decoration: InputDecoration(labelText: "Descripción"),
               validator: (value) {
-                return value.isEmpty ? "Description is requiered" : null;
+                return value.isEmpty
+                    ? "Por favor agregue una descripción"
+                    : null;
               },
               onSaved: (value) {
                 return _value = value;
@@ -80,9 +88,9 @@ class _UploadXPState extends State<UploadXP> {
               width: 600,
             ),
             RaisedButton(
-              onPressed: uploadPost,
+              onPressed: ()=> showAlertDialog(context),
               color: Colors.blueAccent,
-              child: Text('A;adir post'),
+              child: Text('Añadir post'),
             )
           ],
         ),
@@ -137,4 +145,29 @@ class _UploadXPState extends State<UploadXP> {
       return false;
     }
   }
+
+  showAlertDialog(BuildContext context) {
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text("Subiendo experiencia"),
+        content: Text("Desea publicar su historia?"),
+        actions: <Widget>[
+          FlatButton(
+            child: Text("Continuar"),
+            onPressed: (){uploadPost();Navigator.pop(context);}
+          ),
+          FlatButton(
+            child: Text("Cancelar"),
+            onPressed: (){ Navigator.pop(context);},
+          )
+        ],
+      );
+    },
+  );
 }
+}
+
+

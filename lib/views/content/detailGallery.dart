@@ -14,11 +14,20 @@ class Gallery extends StatefulWidget {
 class _HomePageState extends State<Gallery> {
   List<String> images = [];
   Map<String, List<dynamic>> galleryURLs = new Map<String, List<dynamic>>();
+  bool clockWait=false;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    if (!clockWait) {
+      Future.delayed(Duration(seconds: 10)).whenComplete((){
+        setState(() {
+          clockWait=true;
+        });
+      });
+    }
 
     Firestore.instance
           .collection("likes")
@@ -64,8 +73,7 @@ class _HomePageState extends State<Gallery> {
     return Scaffold(
       appBar: PreferredSize(
         child: AppBar(
-          backgroundColor: Colors.blue,
-          brightness: Brightness.light,),
+          backgroundColor: Colors.blue,),
         preferredSize: Size.fromHeight(0.9)
         ),
       body: Container(
@@ -85,7 +93,7 @@ class _HomePageState extends State<Gallery> {
                 height: 550,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: images.length == 0? AssetImage("assets/loading.gif") : NetworkImage(images[currentIndex]),
+                    image: images.length == 0? (clockWait? AssetImage("assets/no_found.png") : AssetImage("assets/loading.gif")) : NetworkImage(images[currentIndex]),
                     fit: BoxFit.none
                   )
                 ),
@@ -117,10 +125,11 @@ class _HomePageState extends State<Gallery> {
             ),
             Expanded(
               child: Transform.translate(
-                offset: Offset(0, -40),
+                offset: Offset(0, -50),
                 child: Container(
+                  height: double.infinity,
                   width: double.infinity,
-                  padding: EdgeInsets.all(20),
+                  padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
@@ -128,7 +137,7 @@ class _HomePageState extends State<Gallery> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(widget.title, style: TextStyle(color: Colors.grey[800], fontSize: 30, fontWeight: FontWeight.bold),),
+                      Text(widget.title, style: TextStyle(color: Colors.grey[800], fontSize: 30, fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                       
                     ],
                   ),

@@ -10,42 +10,36 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:achievement_view/achievement_view.dart';
 
-class MyApp extends StatelessWidget {
+class MyAppLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MyHomePage();
+    return MyHomePageLogin();
   }
 }
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-
-class MyHomePage extends StatefulWidget {
-  
-  MyHomePage({Key key, this.title}) : super(key: key);
+class MyHomePageLogin extends StatefulWidget {
+  MyHomePageLogin({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends StateMVC<MyHomePage> {
-
+class _MyHomePageState extends State<MyHomePageLogin> {
   @override
-  void initState() { 
+  void initState() {
     super.initState();
+    final notify = MyAppN();
+    notify.createState().initState();
   }
 
   UserController _con;
-  String _emailUser="";
+  String emailUser = "";
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
-
-  _MyHomePageState() : super(UserController()) {
-    _con = controller;
-  }
-
 
   bool _rememberMe = false;
 
@@ -79,12 +73,12 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
                 ico,
                 color: Colors.white,
               ),
-              hintText: 'Enter your ' + name,
+              hintText: 'Ingrese su ' + name,
               hintStyle: kHintTextStyle,
             ),
             validator: (String value) {
               if (value.isEmpty) {
-                return 'Please enter some text';
+                return 'Verifique los campos';
               }
             },
           ),
@@ -147,7 +141,7 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
         ),
         color: Colors.blue,
         child: Text(
-          'Log In',
+          'Ingresar',
           style: TextStyle(
             color: Colors.white,
             letterSpacing: 1.5,
@@ -165,7 +159,7 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
       children: <Widget>[
         SizedBox(height: 20.0),
         Text(
-          'Sign in with',
+          'Ingresa con',
           style: kLabelStyle,
         ),
       ],
@@ -184,7 +178,7 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
         );
       },
       label: Text(
-        'Sing up',
+        'Registrarse',
         style: kCLabelStyle,
       ),
       icon: Icon(Icons.supervised_user_circle, color: Colors.white),
@@ -193,19 +187,31 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
 
   Widget _continueBtn() {
     return Center(
-      child: RaisedButton.icon(
-        color: Colors.blue.withOpacity(0.5),
-        textColor: Colors.lightBlueAccent,
-        onPressed: () {
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => MyAppF()));//menu.Menu(_emailUser)));
-        },
-        label: Text(
-          'Continue without account',
-          style: kCLabelStyle,
+      child: Container(
+        margin: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.15),
+        child: RaisedButton(
+          color: Colors.blue.withAlpha(180),
+          textColor: Colors.lightBlueAccent,
+          onPressed: () {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => menu.Menu(emailUser)));
+          },
+          child: Row(
+            children: <Widget>[
+              Text(
+                'Omitir inicio de sesión',
+                style: kCLabelStyle,
+              ),
+              Icon(
+                Icons.arrow_forward,
+                color: Colors.white,
+                semanticLabel: kCLabelStyle.fontFamily,
+              ),
+            ],
+          ),
+          shape: StadiumBorder(),
         ),
-        icon: Icon(Icons.arrow_forward, color: Colors.white),
-        shape: StadiumBorder(),
       ),
     );
   }
@@ -271,7 +277,8 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
                     image: AssetImage('assets/glorieta.jpg'),
                     colorFilter:
                         ColorFilter.mode(Colors.black, BlendMode.dstATop),
-                    fit: BoxFit.fill
+                    alignment: Alignment.center,
+                    centerSlice: Rect.largest,
                   ),
                 ),
               ),
@@ -285,23 +292,20 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    SizedBox(height: 10,),
-                    Text(
-                      'Sign in',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'OpenSans',
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    SizedBox(
+                      height: 5,
                     ),
-                    SizedBox(height: 45.0),
+                    Image.asset(
+                      'assets/ico_logo.png',
+                      scale: 2.0,
+                    ),
                     _wForm('Email', Icons.email, false, _emailController,
                         _signupBtn()),
                     SizedBox(
-                      height: 30.0,
+                      height: 20.0,
                     ),
-                    _wForm('Key', Icons.lock, true, _passController, Text('')),
+                    _wForm('Contraseña', Icons.lock, true, _passController,
+                        Text('')),
                     _forgotPassBtn(),
                     _loginBtn(),
                     _signInWithText(),
@@ -330,18 +334,18 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
         ))
             .user;
         setState(() {
-          _emailUser = user.email;
+          emailUser = user.email;
         });
         showAlert(
             context,
-            "Welcome!",
-            "Thanks for sign in",
+            "Acceso permitido!",
+            "Bienvenido",
             Icon(
               Icons.done,
               color: Colors.cyanAccent,
             ));
-            Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => menu.Menu(_emailUser)));
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => menu.Menu(emailUser)));
       } catch (e) {
         showAlert(
             context,
@@ -356,7 +360,7 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
       showAlert(
           context,
           "Error!",
-          "Please verify...",
+          "Porfavor verifique...",
           Icon(
             Icons.error_outline,
             color: Colors.red,

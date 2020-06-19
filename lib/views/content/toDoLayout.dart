@@ -25,8 +25,10 @@ class _MyHomePageState extends StateMVC<ToDoView> {
   @override
   void initState() {
     super.initState();
+
     DatabaseReference postRef =
         FirebaseDatabase.instance.reference().child(widget.base);
+
     postRef.once().then((DataSnapshot snap) {
       var keys = snap.value.keys;
       var data = snap.value;
@@ -169,11 +171,12 @@ class _MyHomePageState extends StateMVC<ToDoView> {
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          new Container(height: 4.0),
           new Text(tasktoDo.title, style: headerTextStyle),
-          new Container(height: 10.0),
-          new Text(tasktoDo.body.substring(0, 26) + "...",
-              style: subHeaderTextStyle),
+          new Container(height: 5.0),
+          Expanded(
+            child: new Text(tasktoDo.body.substring(0, 30) + "...",
+                style: subHeaderTextStyle),
+          ),
           new Container(
               margin: new EdgeInsets.symmetric(vertical: 8.0),
               height: 2.0,
@@ -184,7 +187,7 @@ class _MyHomePageState extends StateMVC<ToDoView> {
               new Expanded(
                   child: _planetValue(
                       value: tasktoDo.like.toString(),
-                      ico: Icons.thumb_up,
+                      ico: Icons.favorite,
                       color: Colors.blue))
             ],
           ),
@@ -194,8 +197,7 @@ class _MyHomePageState extends StateMVC<ToDoView> {
 
     final planetCard = new Container(
       child: planetCardContent,
-      height: 124.0,
-      margin: new EdgeInsets.only(left: 46.0),
+      margin: new EdgeInsets.only(left: 36.0),
       decoration: new BoxDecoration(
         color: Colors.white,
         shape: BoxShape.rectangle,
@@ -212,7 +214,7 @@ class _MyHomePageState extends StateMVC<ToDoView> {
 
     return new GestureDetector(
         child: Container(
-          height: 120.0,
+          height: MediaQuery.of(context).size.width*0.34,
           margin: const EdgeInsets.symmetric(
             vertical: 16.0,
             horizontal: 24.0,
@@ -258,25 +260,25 @@ class _MyHomePageState extends StateMVC<ToDoView> {
                     children: <Widget>[
                       Container(
                         height: 10,
-                        width: 250,
+                        width: 200,
                         color: Colors.black12,
                         margin: EdgeInsets.only(bottom: 7),
                       ),
                       Container(
                         height: 10,
-                        width: 240,
+                        width: 200,
                         color: Colors.black12,
                         margin: EdgeInsets.only(bottom: 7),
                       ),
                       Container(
                         height: 10,
-                        width: 230,
+                        width: 200,
                         color: Colors.black12,
                         margin: EdgeInsets.only(bottom: 7),
                       ),
                       Container(
                         height: 10,
-                        width: 230,
+                        width: 200,
                         color: Colors.black12,
                         margin: EdgeInsets.only(bottom: 7),
                       ),
@@ -290,17 +292,17 @@ class _MyHomePageState extends StateMVC<ToDoView> {
       appBar: PreferredSize(
           child: AppBar(
             backgroundColor: Colors.blue,
-            brightness: Brightness.light,
           ),
           preferredSize: Size.fromHeight(0.1)),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[100],
       body: SafeArea(
         child: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
               floating: true,
-              expandedHeight: 80,
-              backgroundColor: Colors.blue.withAlpha(200),
+              pinned: true,
+              expandedHeight: 100,
+              backgroundColor: Colors.blue,
               flexibleSpace: Center(
                 child: Text(
                   widget.title,

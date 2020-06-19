@@ -49,36 +49,36 @@ class _MyDetailPageState extends State<GalleryLayaout> {
     List<Widget> wait = List.generate(
         6,
         (index) => GlowingProgressIndicator(
-                child: Card(
-              elevation: 24,
-              margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20)),
-                      color: Colors.black12,
+                child: Container(
+                margin:
+                    EdgeInsets.all(MediaQuery.of(context).size.width * 0.035),
+                child: Stack(
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.black12,
+                            borderRadius: BorderRadius.circular(20)),
+                      ),
                     ),
-                    height: 160,
-                    width: 180,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(20),
-                          bottomRight: Radius.circular(20)),
-                      color: Colors.blue[100],
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.blue.shade300,
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                bottomRight: Radius.circular(20))),
+                        width: 300,
+                        height: 50,
+                        child:
+                            Center(),
+                      ),
                     ),
-                    height: 25,
-                    width: 180,
-                  ),
-                ],
-              ),
-            )));
+                  ],
+                ),
+              )));
 
     List<Widget> items = List.generate(
         gallery.length,
@@ -100,7 +100,7 @@ class _MyDetailPageState extends State<GalleryLayaout> {
                             color: Colors.black12,
                             image: DecorationImage(
                                 image: NetworkImage(
-                                  gallery.entries.elementAt(index).value[index],
+                                  gallery.entries.elementAt(index).value[1],
                                 ),
                                 fit: BoxFit.fill),
                             borderRadius: BorderRadius.circular(20)),
@@ -115,9 +115,9 @@ class _MyDetailPageState extends State<GalleryLayaout> {
                                 bottomLeft: Radius.circular(20),
                                 bottomRight: Radius.circular(20))),
                         width: 300,
-                        height: 35,
+                        height: 50,
                         child:
-                            Center(child: Text(gallery.keys.toList()[index], style: TextStyle(
+                            Center(child: Text(gallery.keys.toList()[index], textAlign: TextAlign.center ,style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'OpenSans'))),
@@ -136,7 +136,7 @@ class _MyDetailPageState extends State<GalleryLayaout> {
               brightness: Brightness.light,
             ),
             preferredSize: Size.fromHeight(0.1)),
-        backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[100],
         body: SafeArea(
           child: CustomScrollView(
             slivers: <Widget>[

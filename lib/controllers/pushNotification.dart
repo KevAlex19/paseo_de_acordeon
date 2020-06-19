@@ -2,15 +2,16 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:paseo_de_acordeon/views/LoginLayaout.dart';
 
 
 
-class MyAppF extends StatefulWidget {
+class MyAppN extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyAppF> {
+class _MyAppState extends State<MyAppN> {
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
   FirebaseMessaging _firebaseMessaging = new FirebaseMessaging();
   @override
@@ -33,8 +34,8 @@ class _MyAppState extends State<MyAppF> {
     _firebaseMessaging.configure(
       onMessage: (value) async {
         print('================Message============');
-        print(value);
-        showNotification("Nuevo lugar registrado",value['data']['place'],"al darle click XD");
+        //print(value);
+        showNotification("Actualizacion de eventos",value['data']['place'],"al darle click XD");
       },
       onLaunch: (value) async {
         print('================Launch============');
@@ -50,14 +51,7 @@ class _MyAppState extends State<MyAppF> {
 
 
   Future onSelectNotification(String payload) {
-    debugPrint("payload : $payload");
-    showDialog(
-      context: context,
-      builder: (_) => new AlertDialog(
-        title: new Text('Notification'),
-        content: new Text('$payload'),
-      ),
-    );
+    debugPrint("payload : $payload "+ MyHomePageLogin().createState().emailUser);
   }
 
   @override
@@ -89,4 +83,39 @@ class _MyAppState extends State<MyAppF> {
         0, title, body, platform,
         payload: payload);
   }
+}
+
+showAlertDialog(BuildContext context) {
+  // set up the button
+  Widget okButton = FlatButton(
+    child: Text("OK"),
+    onPressed: () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => null));
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    elevation: 24,
+    title: Text("Accion denegada"),
+    content: Text("Para continuar inicie sesión o registrese"),
+    actions: [
+      FlatButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: Text("Cancelar"),
+      ),
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
