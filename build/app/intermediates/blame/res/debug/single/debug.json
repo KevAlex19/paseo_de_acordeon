@@ -36,10 +36,6 @@
         "source": "C:\\Users\\calvo\\.gradle\\caches\\transforms-2\\files-2.1\\6eb14f512292913515d869914807ad40\\play-services-base-17.1.0\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
-        "merged": "C:\\src\\proyectos\\paseo_de_acordeon\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "C:\\src\\proyectos\\paseo_de_acordeon\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\src\\proyectos\\paseo_de_acordeon\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\calvo\\.gradle\\caches\\transforms-2\\files-2.1\\35f29bb1a578f0319e9c3e21730b6b49\\core-1.2.0\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
     },
@@ -94,10 +90,6 @@
     {
         "merged": "C:\\src\\proyectos\\paseo_de_acordeon\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "C:\\Users\\calvo\\.gradle\\caches\\transforms-2\\files-2.1\\35f29bb1a578f0319e9c3e21730b6b49\\core-1.2.0\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
-    },
-    {
-        "merged": "C:\\src\\proyectos\\paseo_de_acordeon\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ico_logo.png.flat",
-        "source": "C:\\src\\proyectos\\paseo_de_acordeon\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ico_logo.png"
     },
     {
         "merged": "C:\\src\\proyectos\\paseo_de_acordeon\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
@@ -196,6 +188,10 @@
         "source": "C:\\Users\\calvo\\.gradle\\caches\\transforms-2\\files-2.1\\6eb14f512292913515d869914807ad40\\play-services-base-17.1.0\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
+        "merged": "C:\\src\\proyectos\\paseo_de_acordeon\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ico.png.flat",
+        "source": "C:\\src\\proyectos\\paseo_de_acordeon\\android\\app\\src\\main\\res\\mipmap-hdpi\\ico.png"
+    },
+    {
         "merged": "C:\\src\\proyectos\\paseo_de_acordeon\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_dark_normal.xml.flat",
         "source": "C:\\Users\\calvo\\.gradle\\caches\\transforms-2\\files-2.1\\6eb14f512292913515d869914807ad40\\play-services-base-17.1.0\\res\\drawable\\common_google_signin_btn_icon_dark_normal.xml"
     },
@@ -242,6 +238,10 @@
     {
         "merged": "C:\\src\\proyectos\\paseo_de_acordeon\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_googleg_disabled_color_18.png.flat",
         "source": "C:\\Users\\calvo\\.gradle\\caches\\transforms-2\\files-2.1\\6eb14f512292913515d869914807ad40\\play-services-base-17.1.0\\res\\drawable-xxhdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "C:\\src\\proyectos\\paseo_de_acordeon\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ico_log.png.flat",
+        "source": "C:\\src\\proyectos\\paseo_de_acordeon\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ico_log.png"
     },
     {
         "merged": "C:\\src\\proyectos\\paseo_de_acordeon\\build\\app\\intermediates\\res\\merged\\debug\\drawable_app_icon.png.flat",

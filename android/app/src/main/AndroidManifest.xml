@@ -14,8 +14,8 @@
     
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="paseo_de_acordeon"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Paseo de Acordeon"
+        android:icon="@mipmap/ico">
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyB2xUUJddD-tHaYuW__qggsyJVHg9pb0LY"/>
         <activity

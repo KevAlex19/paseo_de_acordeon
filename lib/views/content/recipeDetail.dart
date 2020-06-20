@@ -228,21 +228,6 @@ class _MyDetailPageState extends State<RecipeDetail> {
                         ],
                       ),
                     ),
-                    //SizedBox(width: 20,),
-                    Expanded(
-                      child: Column(
-                        children: <Widget>[
-                          GestureDetector(
-                              onTap: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          Gallery(widget.recipe.title))),
-                              child: Icon(Icons.photo_library)),
-                          Text('\nFotos')
-                        ],
-                      ),
-                    ),
                     Expanded(
                       child: Column(
                         children: <Widget>[
@@ -372,7 +357,6 @@ class _MyDetailPageState extends State<RecipeDetail> {
       appBar: PreferredSize(
           child: AppBar(
             backgroundColor: Colors.blue,
-            brightness: Brightness.light,
           ),
           preferredSize: Size.fromHeight(0.1)),
       body: SafeArea(

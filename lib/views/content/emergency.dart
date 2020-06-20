@@ -18,7 +18,6 @@ class Emergency extends StatelessWidget {
         appBar: PreferredSize(
           child: AppBar(
             backgroundColor: Colors.blue,
-            brightness: Brightness.light,
           ),
           preferredSize: Size.fromHeight(0.1)),
       backgroundColor: Colors.white,

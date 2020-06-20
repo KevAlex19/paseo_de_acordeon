@@ -236,7 +236,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                       ),
                     ),
                     //SizedBox(width: 20,),
-                    Expanded(
+                    widget._taskToDo.type=="taxi"? SizedBox(width: 0.001,) :  Expanded(
                       child: Column(
                         children: <Widget>[
                           GestureDetector(
@@ -256,7 +256,7 @@ class _MyDetailPageState extends State<MyDetailPage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        MapScreen(widget._taskToDo.title))),
+                                        MapScreen(widget._taskToDo.title,widget._taskToDo.latitude))),
                           ),
                           Text('\nMapa')
                         ],
@@ -331,7 +331,6 @@ class _MyDetailPageState extends State<MyDetailPage> {
       appBar: PreferredSize(
           child: AppBar(
             backgroundColor: Colors.blue,
-            brightness: Brightness.light,
           ),
           preferredSize: Size.fromHeight(0.1)),
       body: SafeArea(

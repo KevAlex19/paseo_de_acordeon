@@ -44,7 +44,7 @@ dev_dependencies:
         sdk: flutter
 
 flutter_native_splash:
-    image: assets/ico_logo.png
+    image: assets/ico.png
     color: 42a5f5
 
 flutter:

@@ -6,7 +6,8 @@ import 'package:flutter/services.dart';
 class MapScreen extends StatefulWidget {
   //MapScreen({Key key}) : super(key: key);
   String title;
-  MapScreen(this.title);
+  double zoom;
+  MapScreen(this.title, this.zoom);
   @override
   _MapScreenState createState() => _MapScreenState();
 }
@@ -58,7 +59,7 @@ class _MapScreenState extends State<MapScreen> {
       ),
       body: GoogleMap(
         initialCameraPosition:
-            CameraPosition(target: LatLng(10.460642, -73.239397), zoom: 12),
+            CameraPosition(target: LatLng(latitude[0],longitude[0]), zoom: widget.zoom),
         markers: tmp,
         myLocationEnabled: true,
         myLocationButtonEnabled: true,

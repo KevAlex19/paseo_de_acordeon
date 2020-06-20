@@ -517,7 +517,8 @@ public final class R {
   }
   public static final class mipmap {
     public static final int ic_launcher=0x7f080000;
-    public static final int ico_logo=0x7f080001;
+    public static final int ico=0x7f080001;
+    public static final int ico_log=0x7f080002;
   }
   public static final class string {
     public static final int common_google_play_services_enable_button=0x7f090000;

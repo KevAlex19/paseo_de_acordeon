@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,15 @@ class _MyAppState extends State<MyAppN> {
   }
 
   _reciveNotify(){
-    _firebaseMessaging.getToken().then((value) => print(value));
+    _firebaseMessaging.getToken().then((value){ 
+      print(value);
+       Firestore.instance
+            .collection("tokens")
+            .document("users")
+            .updateData({
+          'tokens': FieldValue.arrayUnion([value.toString()]),
+        });
+      });
 
     _firebaseMessaging.configure(
       onMessage: (value) async {

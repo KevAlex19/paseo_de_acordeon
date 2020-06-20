@@ -222,7 +222,7 @@ class _MyHomePageState extends StateMVC<Menu> {
           style: kCLabelStyle,
         ),
         Text(
-          'Hoteles y 9999',
+          'Lugares de estadía',
           style: kLabelStyle,
         ),
         ToDoView("Services", 'Hospedaje', "hotel", widget.user),

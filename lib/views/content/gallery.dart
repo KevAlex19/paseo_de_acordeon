@@ -133,7 +133,6 @@ class _MyDetailPageState extends State<GalleryLayaout> {
         appBar: PreferredSize(
             child: AppBar(
               backgroundColor: Colors.blue,
-              brightness: Brightness.light,
             ),
             preferredSize: Size.fromHeight(0.1)),
       backgroundColor: Colors.grey[100],

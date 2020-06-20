@@ -214,7 +214,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ca
 	android:label
 		ADDED from C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:17:9-42
 	android:icon
-		ADDED from C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:18:9-43
+		ADDED from C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:18:9-35
 	android:name
 		ADDED from C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:16:9-57
 meta-data#com.google.android.geo.API_KEY

@@ -60,9 +60,9 @@
 33        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 33-->[androidx.core:core:1.2.0] C:\Users\calvo\.gradle\caches\transforms-2\files-2.1\35f29bb1a578f0319e9c3e21730b6b49\core-1.2.0\AndroidManifest.xml:24:18-86
 34        android:debuggable="true"
-35        android:icon="@mipmap/ic_launcher"
-35-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:18:9-43
-36        android:label="paseo_de_acordeon" >
+35        android:icon="@mipmap/ico"
+35-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:18:9-35
+36        android:label="Paseo de Acordeon" >
 36-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:17:9-42
 37        <meta-data
 37-->C:\src\proyectos\paseo_de_acordeon\android\app\src\main\AndroidManifest.xml:19:9-20:73
